@@ -70,25 +70,35 @@ function showNextQuestion() {
 }
 
 nextQuestionButton.addEventListener("click", () => {
-currentQuestionIndex++;
-showNextQuestion();
+    currentQuestionIndex++;
+    showNextQuestion();
 });
 
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+  }
+  
 // Additional functions for handling the user's answer selection and providing feedback
-function showQuestion(question) {
+  function showQuestion(question) {
     questionElement.innerText = question.text;
     answerOptionsElement.innerHTML = "";
+  
+    shuffleArray(question.answers);
+  
     question.answers.forEach((answer, index) => {
-        const li = document.createElement("li");
-        const button = document.createElement("button");
-        button.innerText = answer.text;
-        button.classList.add("answer");
-        button.addEventListener("click", () => selectAnswer(button, answer, index));
-        li.appendChild(button);
-        answerOptionsElement.appendChild(li);
+      const li = document.createElement("li");
+      const button = document.createElement("button");
+      button.innerText = answer.text;
+      button.classList.add("answer");
+      button.addEventListener("click", () => selectAnswer(button, answer, index));
+      li.appendChild(button);
+      answerOptionsElement.appendChild(li);
     });
     nextQuestionButton.disabled = true;
-}
+  }
 
 function selectAnswer(button, answer, index) {
     const answerButtons = document.querySelectorAll(".answer");
