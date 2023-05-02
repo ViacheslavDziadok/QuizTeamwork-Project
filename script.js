@@ -56,7 +56,7 @@ const questions = [
     },
   ];
 
-let shuffledQuestions, currentQuestionIndex;
+let shuffledQuestions, currentQuestionIndex, correctAnswerCouter;
 
 startQuiz();
 
