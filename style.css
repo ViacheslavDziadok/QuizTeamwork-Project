@@ -35,6 +35,10 @@ body {
   .answer.wrong {
     background-color: #f44336;
   }
+
+  .answer.selected {
+    background-color: blue;
+  }
   
   button {
     font-size: 1em;

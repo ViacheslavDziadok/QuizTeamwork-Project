@@ -91,31 +91,55 @@ function shuffleArray(array) {
 // Additional functions for handling the user's answer selection and providing feedback
   function showQuestion(question) {
     questionElement.innerText = question.text;
-    answerOptionsElement.innerHTML = "";
+    answerOptionsElement.innerText = "";
   
     shuffleArray(question.answers);
   
-    question.answers.forEach((answer, index) => {
+    question.answers.forEach((answer) => {
       const li = document.createElement("li");
       const button = document.createElement("button");
       button.innerText = answer.text;
       button.classList.add("answer");
-      button.addEventListener("click", () => selectAnswer(button, answer, index));
+      button.addEventListener("click", () => selectAnswer(button));
       li.appendChild(button);
       answerOptionsElement.appendChild(li);
     });
+
+    if (!document.getElementById("submitAnswerButton")) {
+        // Create and add the submit button
+        const submitButton = document.createElement("button");
+        submitButton.innerText = "Submit";
+        submitButton.id = "submitAnswerButton";
+        submitButton.disabled = true;
+        submitButton.addEventListener("click", submitAnswer);
+        quizContainer.appendChild(submitButton);
+    }
+  
     nextQuestionButton.disabled = true;
   }
 
-function selectAnswer(button, clickedAnswer, index) {
+function selectAnswer(button) {
     const answerButtons = document.querySelectorAll(".answer");
-    answerButtons.forEach((btn, i) => {
-        btn.disabled = true;
-        const answer = questions[currentQuestionIndex].answers[i];
-        btn.classList.add(answer.isCorrect ? "correct" : "wrong");
+    answerButtons.forEach((btn) => btn.classList.remove("selected"));
+    button.classList.add("selected");
+    document.getElementById("submitAnswerButton").disabled = false;
+}
+
+function submitAnswer() {
+    const answerButtons = document.querySelectorAll(".answer");
+    const selectedButton = document.querySelector(".selected");
+    selectedButton.classList.remove("selected");
+    const selectedIndex = Array.from(answerButtons).indexOf(selectedButton);
+    const selectedAnswer = questions[currentQuestionIndex].answers[selectedIndex];
+
+    answerButtons.forEach((button, index) => {
+        const answer = questions[currentQuestionIndex].answers[index];
+        button.classList.add(answer.isCorrect ? "correct" : "wrong");
+        button.disabled = true;
     });
 
-    shuffledQuestions[currentQuestionIndex].userAnswer = clickedAnswer.isCorrect;
+    shuffledQuestions[currentQuestionIndex].userAnswer = selectedAnswer.isCorrect;
+    document.getElementById("submitAnswerButton").disabled = true;
     nextQuestionButton.disabled = false;
 }
 
@@ -134,6 +158,6 @@ function showFinalScore() {
         scoreMessage.innerText = `You seem to have a bad day. Your score is ${score}%`;
     }
 
-    quizContainer.innerHTML = "";
+    quizContainer.innerText = "";
     quizContainer.appendChild(scoreMessage);
 }
