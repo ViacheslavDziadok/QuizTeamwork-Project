@@ -1,6 +1,12 @@
+/* * {
+  background-image: linear-gradient(to bottom right, red, yellow);
+} */
+
 body {
+    height: 100%;
     font-family: Arial, sans-serif;
-    background-color: lightblue;
+    /* background-color: lightblue; */
+    background-image: linear-gradient(to bottom right, rgb(61, 6, 148), rgb(109, 78, 233));
   }
   
   #quiz-container {
@@ -43,7 +49,7 @@ body {
     cursor: pointer;
   }
 
-  .answer, #next-question, #quiz-container {
+  .answer, #next-question, #quiz-container, .control_button {
     border: 1px solid rgb(31, 30, 30);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }
@@ -66,15 +72,18 @@ body {
   
   button {
     width: 100%;
-    font-size: 1em;
     padding: 10px 20px;
     margin-top: 20px;
-    background-color: #2196f3;
-    color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
 
+  }
+
+  .control_button {
+    font-size: 1em;
+    background-color: #2196f3;
+    color: #fff;
   }
 
   @media only screen and (max-width: 600px) {
