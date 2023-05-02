@@ -120,7 +120,10 @@ function showFinalScore() {
     const correctAnswers = shuffledQuestions.filter(
     (question) => question.userAnswer === true
     ).length;
+    console.log(shuffledQuestions);
+    console.log(correctAnswers);
     const score = (correctAnswers / shuffledQuestions.length) * 100;
+    console.log(score);
 
     const scoreMessage = document.createElement("p");
     if (score >= 80) {
