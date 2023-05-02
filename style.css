@@ -1,5 +1,6 @@
 body {
     font-family: Arial, sans-serif;
+    background-color: lightblue;
   }
   
   #quiz-container {
@@ -8,24 +9,47 @@ body {
     padding: 20px;
     background-color: #f1f1f1;
     border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   
   #question {
     font-size: 1.5em;
     font-weight: bold;
   }
+
+  #answer-options {
+    min-width: 80%;
+    padding: 0;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
   
   #answer-options li {
     list-style-type: none;
     margin: 10px 0;
+    width: 80%;
   }
   
   .answer {
+    color: rgb(31, 30, 30);
+    font-size: large;
     display: inline-block;
     padding: 10px 15px;
     background-color: #ddd;
     border-radius: 5px;
     cursor: pointer;
+  }
+
+  .answer, #next-question, #quiz-container {
+    border: 1px solid rgb(31, 30, 30);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+
+  .answer:hover {
+    box-shadow: 0 0 8px rgba(35, 173, 278, 1);
   }
   
   .answer.correct {
@@ -37,6 +61,7 @@ body {
   }
   
   button {
+    width: 100%;
     font-size: 1em;
     padding: 10px 20px;
     margin-top: 20px;
@@ -45,5 +70,16 @@ body {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+
+  }
+
+  @media only screen and (max-width: 600px) {
+    body {
+      background-color: lightblue;
+    }
+
+    #quiz-container {
+      margin: 20px;
+    }
   }
   
