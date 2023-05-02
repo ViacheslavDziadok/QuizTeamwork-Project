@@ -105,16 +105,6 @@ function shuffleArray(array) {
       answerOptionsElement.appendChild(li);
     });
 
-    if (!document.getElementById("nextQuestionButton")) {
-        // Create and add the next question button
-        const nextQuestionButton = document.createElement("button");
-        nextQuestionButton.innerText = "Next Question";
-        nextQuestionButton.classList.add("control_button");
-        nextQuestionButton.id = "nextQuestionButton";
-        nextQuestionButton.disabled = true;
-        quizContainer.appendChild(nextQuestionButton);
-    }
-
     if (!document.getElementById("submitAnswerButton")) {
         // Create and add the submit button
         const submitButton = document.createElement("button");
@@ -123,7 +113,9 @@ function shuffleArray(array) {
         submitButton.classList.add("control_button")
         submitButton.disabled = true;
         submitButton.addEventListener("click", submitAnswer);
-        quizContainer.insertBefore(submitButton, quizContainer.lastElementChild);
+
+        const nav = document.getElementById("quiz")
+        nav.insertBefore(submitButton, nav.lastElementChild);
     }
   
     nextQuestionButton.disabled = true;
