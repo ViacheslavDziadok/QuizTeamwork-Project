@@ -100,7 +100,6 @@ function shuffleArray(array) {
       const button = document.createElement("button");
       button.innerText = answer.text;
       button.classList.add("answer");
-      button.classList.add("control_button")
       button.addEventListener("click", () => selectAnswer(button));
       li.appendChild(button);
       answerOptionsElement.appendChild(li);
