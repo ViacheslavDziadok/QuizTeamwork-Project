@@ -56,7 +56,7 @@ const questions = [
     },
   ];
 
-let shuffledQuestions, currentQuestionIndex, correctAnswerCouter;
+let shuffledQuestions, currentQuestionIndex;
 
 startQuiz();
 
@@ -100,6 +100,7 @@ function shuffleArray(array) {
       const button = document.createElement("button");
       button.innerText = answer.text;
       button.classList.add("answer");
+      button.classList.add("control_button")
       button.addEventListener("click", () => selectAnswer(button));
       li.appendChild(button);
       answerOptionsElement.appendChild(li);
@@ -110,6 +111,7 @@ function shuffleArray(array) {
         const submitButton = document.createElement("button");
         submitButton.innerText = "Submit";
         submitButton.id = "submitAnswerButton";
+        submitButton.classList.add("control_button")
         submitButton.disabled = true;
         submitButton.addEventListener("click", submitAnswer);
         quizContainer.appendChild(submitButton);
