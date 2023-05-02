@@ -12,6 +12,7 @@ const questions = [
         { text: "<meta>", isCorrect: false },
         { text: "<header>", isCorrect: false },
       ],
+      explanation: "The <title> HTML element defines the document's title that is shown in a browser's title bar or a page's tab.",
     },
     {
       text: "What does CSS stand for?",
@@ -21,15 +22,17 @@ const questions = [
         { text: "Creative Style Systems", isCorrect: false },
         { text: "Computer Style Sheets", isCorrect: false },
       ],
+      explanation: "CSS is the acronym of “Cascading Style Sheets”. CSS is a computer language for laying out and structuring web pages (HTML or XML).",
     },
     {
       text: "How do you create a function in JavaScript?",
       answers: [
-        { text: "function myFunction()", isCorrect: true },
-        { text: "def myFunction()", isCorrect: false },
-        { text: "function:myFunction()", isCorrect: false },
-        { text: "create myFunction()", isCorrect: false },
+        { text: "function myFunction() {}", isCorrect: true },
+        { text: "def myFunction() {}", isCorrect: false },
+        { text: "function:myFunction() {}", isCorrect: false },
+        { text: "create myFunction() {}", isCorrect: false },
       ],
+      explanation: "To create a function, we must first declare it and give it a name, the same way we'd create any variable, and then we follow it by a function definition: var sayHello = function() { };",
     },
     {
       text: "Which of these is NOT a valid HTML5 input type?",
@@ -37,8 +40,9 @@ const questions = [
         { text: "date", isCorrect: false },
         { text: "email", isCorrect: false },
         { text: "number", isCorrect: false },
-        { text: "url", isCorrect: false },
+        { text: "string", isCorrect: true },
       ],
+      explanation: " This is that case when it's hard to remember all the input types, you can always have a look on it here: https://www.w3schools.com/html/html_form_input_types.asp",
     },
     {
       text: "Which of the following is not a reserved word in JavaScript?",
@@ -48,6 +52,7 @@ const questions = [
         { text: "throws", isCorrect: false },
         { text: "short", isCorrect: false },
       ],
+      explanation: "In JavaScript you cannot use certain words as variables, labels, or function names. You can have a look on them here: https://www.w3schools.com/js/js_reserved.asp",
     },
   ];
 
