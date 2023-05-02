@@ -1,0 +1,49 @@
+body {
+    font-family: Arial, sans-serif;
+  }
+  
+  #quiz-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+  }
+  
+  #question {
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+  
+  #answer-options li {
+    list-style-type: none;
+    margin: 10px 0;
+  }
+  
+  .answer {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .answer.correct {
+    background-color: #4caf50;
+  }
+  
+  .answer.wrong {
+    background-color: #f44336;
+  }
+  
+  button {
+    font-size: 1em;
+    padding: 10px 20px;
+    margin-top: 20px;
+    background-color: #2196f3;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
