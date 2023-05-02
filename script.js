@@ -114,7 +114,7 @@ function shuffleArray(array) {
         submitButton.classList.add("control_button")
         submitButton.disabled = true;
         submitButton.addEventListener("click", submitAnswer);
-        quizContainer.appendChild(submitButton);
+        quizContainer.insertBefore(submitButton, quizContainer.lastElementChild);
     }
   
     nextQuestionButton.disabled = true;
