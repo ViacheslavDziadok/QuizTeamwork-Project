@@ -61,7 +61,9 @@ let shuffledQuestions, currentQuestionIndex;
 startQuiz();
 
 function startQuiz() {
+  // Shuffle the questions randomly
   shuffledQuestions = questions.sort(() => Math.random() - 0.5);
+
   currentQuestionIndex = 0;
   showNextQuestion();
 }
@@ -105,14 +107,15 @@ function shuffleArray(array) {
     nextQuestionButton.disabled = true;
   }
 
-function selectAnswer(button, answer, index) {
+function selectAnswer(button, clickedAnswer, index) {
     const answerButtons = document.querySelectorAll(".answer");
-        answerButtons.forEach((btn) => {
+    answerButtons.forEach((btn, i) => {
         btn.disabled = true;
-        if (btn === button) {
-            btn.classList.add(answer.isCorrect ? "correct" : "wrong");
-        }
+        const answer = questions[currentQuestionIndex].answers[i];
+        btn.classList.add(answer.isCorrect ? "correct" : "wrong");
     });
+
+    shuffledQuestions[currentQuestionIndex].userAnswer = clickedAnswer.isCorrect;
     nextQuestionButton.disabled = false;
 }
 
